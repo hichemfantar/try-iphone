@@ -1,41 +1,53 @@
+import { faWifi } from "@fortawesome/free-solid-svg-icons";
+import { faBatteryThreeQuarters } from "@fortawesome/free-solid-svg-icons/faBatteryThreeQuarters";
+import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
+import { faSignal } from "@fortawesome/free-solid-svg-icons/faSignal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const iconPack = [
 	{
-		img: "https://e1.pngegg.com/pngimages/330/499/png-clipart-icons-ios-9-messages-thumbnail.png",
+		img: "https://i.imgur.com/RbKkK1l.png",
 		name: "Messages",
 		type: "dock",
 	},
 	{
-		img: "https://e1.pngegg.com/pngimages/806/610/png-clipart-icons-ios-9-phone-thumbnail.png",
+		img: "https://i.imgur.com/xhSWHL6.png",
 		name: "Phone",
 		type: "dock",
 	},
 	{
-		img: "https://e1.pngegg.com/pngimages/59/374/png-clipart-ios-7-icons-updated-safari-safari-logo-thumbnail.png",
+		img: "https://i.imgur.com/4j9HTzF.png",
 		name: "Safari",
 		type: "dock",
 	},
 	{
-		img: "https://e1.pngegg.com/pngimages/466/330/png-clipart-icons-ios-9-camera-thumbnail.png",
+		img: "https://i.imgur.com/ifeN8w5.png",
 		name: "Camera",
 		type: "dock",
 	},
 	{
-		img: "https://e1.pngegg.com/pngimages/803/923/png-clipart-icons-ios-9-mail-thumbnail.png",
+		img: "https://i.imgur.com/m0czIPG.png",
 		name: "Mail",
+		type: "dock",
 	},
 	{
-		img: "https://e1.pngegg.com/pngimages/618/42/png-clipart-icons-ios-9-settings-thumbnail.png",
+		img: "https://i.imgur.com/IyRJPtu.png",
 		name: "Settings",
 	},
 ];
 
 function App() {
 	return (
-		<>
-			<div className="text-sm p-4 pb-0">
-				<div>2:58</div>
+		<div className="flex flex-col h-[100dvh] ">
+			<div className="text-sm p-4 pb-0 text-gray-100 flex justify-between items-center">
+				<div>9:41</div>
+				<div className="flex gap-2 items-center">
+					<FontAwesomeIcon icon={faSignal} />
+					<FontAwesomeIcon icon={faWifi} />
+					<FontAwesomeIcon icon={faBatteryThreeQuarters} size="lg" />
+				</div>
 			</div>
-			<div className="snap-x snap-mandatory w-full flex overflow-auto flex-['0_0_100%'']">
+			<div className="flex-1 snap-x snap-mandatory w-full flex overflow-auto flex-['0_0_100%''] scrollbar-none scroll-smooth">
 				{[1, 1].map(() => (
 					<div
 						className="grid grid-cols-4 gap-4 p-4 grid-rows-6 justify-center snap-center w-full"
@@ -69,17 +81,20 @@ function App() {
 				))}
 			</div>
 
-			<div className="mx-auto flex items-center w-fit gap-4 px-2.5 py-1 bg-gray-200/50 justify-center m-4 rounded-2xl text-xs">
-				Search
+			<div className="">
+				<button className="backdrop-blur text-gray-50 mx-auto flex items-center w-fit gap-1 px-2.5 py-1 bg-gray-200/50 justify-center m-4 rounded-2xl text-xs">
+					<FontAwesomeIcon icon={faSearch} size="xs" />
+					Search
+				</button>
+				<div className="flex gap-4 p-3 bg-gray-200/50 justify-center m-4 rounded-3xl backdrop-blur">
+					{iconPack
+						.filter((icon) => icon.type === "dock")
+						.map((url) => (
+							<IosIcon url={url.img} name={url.name} />
+						))}
+				</div>
 			</div>
-			<div className="flex gap-4 p-2.5 bg-gray-200/50 justify-center m-4 rounded-2xl">
-				{iconPack
-					.filter((icon) => icon.type === "dock")
-					.map((url) => (
-						<IosIcon url={url.img} name={url.name} />
-					))}
-			</div>
-		</>
+		</div>
 	);
 }
 
@@ -95,12 +110,16 @@ function IosIcon({
 	showText?: boolean;
 }) {
 	return (
-		<button className="active:grayscale-[60%] transition-all active:scale-105">
+		<button className="active:grayscale-[60%] transition-all active:scale-105 text-gray-100 flex flex-col gap-1 items-center justify-center">
 			<img
 				src={url}
-				className="bg-green-300 h-12 w-12 rounded-lg hover:opacity-80 focus:grayscale-[60%] transition-all object-contain "
+				className="bg-green-300 h-12 w-12 rounded-xl active:opacity-80 active:grayscale-[60%] transition-all object-cover"
 			></img>
-			{showText && name && <div className="text-xs">{name}</div>}
+			{showText && name && (
+				<div className="text-xs font-light antialiased tracking-wider">
+					{name}
+				</div>
+			)}
 		</button>
 	);
 }
