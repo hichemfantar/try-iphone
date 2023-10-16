@@ -28,7 +28,6 @@ const iconPack = [
 	{
 		img: "https://i.imgur.com/m0czIPG.png",
 		name: "Mail",
-		type: "dock",
 	},
 	{
 		img: "https://i.imgur.com/IyRJPtu.png",
@@ -84,9 +83,9 @@ function App() {
 			<div className="">
 				<button className="backdrop-blur text-gray-50 mx-auto flex items-center w-fit gap-1 px-2.5 py-1 bg-gray-200/50 justify-center m-4 rounded-2xl text-xs">
 					<FontAwesomeIcon icon={faSearch} size="xs" />
-					Search
+					<div>Search</div>
 				</button>
-				<div className="flex gap-4 p-3 bg-gray-200/50 justify-center m-4 rounded-3xl backdrop-blur">
+				<div className="flex gap-4 p-4 bg-gray-200/50 justify-between md:justify-center m-4 rounded-3xl backdrop-blur">
 					{iconPack
 						.filter((icon) => icon.type === "dock")
 						.map((url) => (
@@ -113,10 +112,10 @@ function IosIcon({
 		<button className="active:grayscale-[60%] transition-all active:scale-105 text-gray-100 flex flex-col gap-1 items-center justify-center">
 			<img
 				src={url}
-				className="bg-green-300 h-12 w-12 rounded-xl active:opacity-80 active:grayscale-[60%] transition-all object-cover"
+				className="bg-green-300 h-14 w-14 rounded-xl active:opacity-80 active:grayscale-[60%] transition-all object-cover"
 			></img>
 			{showText && name && (
-				<div className="text-xs font-light antialiased tracking-wider">
+				<div className="text-xs font-normal antialiased tracking-wider">
 					{name}
 				</div>
 			)}
