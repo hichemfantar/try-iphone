@@ -1,0 +1,16 @@
+{
+	"short_name": "Try iPhone",
+	"name": "Try iPhone",
+	"description": "The iPhone experience",
+	"icons": [
+		{
+			"src": "maskable_icon_x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+	],
+	"start_url": ".",
+	"display": "fullscreen",
+	"theme_color": "#000000",
+	"background_color": "#000000"
+}
