@@ -37,15 +37,15 @@ const iconPack = [
 
 function App() {
 	return (
-		<div className="flex flex-col h-[100vh] ">
-			<div className="text-sm p-4 pb-0 text-gray-100 flex justify-between items-center">
+		<div className="flex flex-col h-[100dvh] ">
+			{/* <div className="text-sm p-4 pb-0 text-gray-100 flex justify-between items-center">
 				<div className="font-medium">9:42</div>
 				<div className="flex gap-2 items-center">
 					<FontAwesomeIcon icon={faSignal} />
 					<FontAwesomeIcon icon={faWifi} />
 					<FontAwesomeIcon icon={faBatteryThreeQuarters} size="lg" />
 				</div>
-			</div>
+			</div> */}
 			<div className="flex-1 snap-x snap-mandatory w-full flex overflow-auto flex-['0_0_100%''] scrollbar-none scroll-smooth">
 				{[1, 1].map(() => (
 					<div
