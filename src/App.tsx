@@ -1,7 +1,4 @@
-import { faWifi } from "@fortawesome/free-solid-svg-icons";
-import { faBatteryThreeQuarters } from "@fortawesome/free-solid-svg-icons/faBatteryThreeQuarters";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
-import { faSignal } from "@fortawesome/free-solid-svg-icons/faSignal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
