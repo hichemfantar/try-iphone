@@ -3,39 +3,47 @@ import { faBatteryThreeQuarters } from "@fortawesome/free-solid-svg-icons/faBatt
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { faSignal } from "@fortawesome/free-solid-svg-icons/faSignal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const iconPack = [
-	{
-		img: "https://i.imgur.com/RbKkK1l.png",
-		name: "Messages",
-		type: "dock",
-	},
-	{
-		img: "https://i.imgur.com/xhSWHL6.png",
-		name: "Phone",
-		type: "dock",
-	},
-	{
-		img: "https://i.imgur.com/4j9HTzF.png",
-		name: "Safari",
-		type: "dock",
-	},
-	{
-		img: "https://i.imgur.com/ifeN8w5.png",
-		name: "Camera",
-		type: "dock",
-	},
-	{
-		img: "https://i.imgur.com/m0czIPG.png",
-		name: "Mail",
-	},
-	{
-		img: "https://i.imgur.com/IyRJPtu.png",
-		name: "Settings",
-	},
-];
+import { useState } from "react";
 
 function App() {
+	const [activeScreen, setActiveScreen] = useState("home");
+
+	const iconPack = [
+		{
+			img: "https://i.imgur.com/RbKkK1l.png",
+			name: "Messages",
+			type: "dock",
+		},
+		{
+			img: "https://i.imgur.com/xhSWHL6.png",
+			name: "Phone",
+			type: "dock",
+		},
+		{
+			img: "https://i.imgur.com/4j9HTzF.png",
+			name: "Safari",
+			type: "dock",
+		},
+		{
+			img: "https://i.imgur.com/ifeN8w5.png",
+			name: "Camera",
+			type: "dock",
+		},
+		{
+			img: "https://i.imgur.com/m0czIPG.png",
+			name: "Mail",
+		},
+		{
+			img: "https://i.imgur.com/IyRJPtu.png",
+			name: "Settings",
+			onClick: () => setActiveScreen("settings"),
+		},
+	];
+
+	if (activeScreen === "settings") {
+		return <div>Settings</div>;
+	}
+
 	return (
 		<div className="flex flex-col h-[100dvh] ">
 			{/* <div className="text-sm p-4 pb-0 text-gray-100 flex justify-between items-center">
@@ -88,8 +96,8 @@ function App() {
 				<div className="flex gap-4 p-4 bg-gray-200/50 justify-between md:justify-center m-4 rounded-3xl backdrop-blur">
 					{iconPack
 						.filter((icon) => icon.type === "dock")
-						.map((url) => (
-							<IosIcon url={url.img} name={url.name} />
+						.map((icon) => (
+							<IosIcon url={icon.img} name={icon.name} onClick={icon.onClick} />
 						))}
 				</div>
 			</div>
@@ -103,13 +111,18 @@ function IosIcon({
 	url,
 	name,
 	showText,
+	onClick,
 }: {
 	url: string;
 	name: string;
 	showText?: boolean;
+	onClick?: () => void;
 }) {
 	return (
-		<button className="active:grayscale-[60%] transition-all active:scale-105 text-gray-100 flex flex-col gap-1 items-center justify-center">
+		<button
+			className="active:grayscale-[60%] transition-all active:scale-105 text-gray-100 flex flex-col gap-1 items-center justify-center"
+			onClick={onClick}
+		>
 			<img
 				src={url}
 				className="bg-green-300 h-14 w-14 rounded-xl active:opacity-80 active:grayscale-[60%] transition-all object-cover"
