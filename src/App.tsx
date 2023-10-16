@@ -5,7 +5,7 @@ import { useState } from "react";
 function App() {
 	const [activeScreen, setActiveScreen] = useState("home");
 
-	const iconPack = [
+	const apps = [
 		{
 			img: "https://i.imgur.com/RbKkK1l.png",
 			name: "Messages",
@@ -76,9 +76,14 @@ function App() {
 								</div>
 							</div>
 						</div>
-						{iconPack.map((url) => (
+						{apps.map((app) => (
 							<div className="col-span-1 flex justify-center items-center">
-								<IosIcon url={url.img} name={url.name} showText />
+								<AppItem
+									url={app.img}
+									name={app.name}
+									showText
+									onClick={app.onClick}
+								/>
 							</div>
 						))}
 					</div>
@@ -91,10 +96,10 @@ function App() {
 					<div>Search</div>
 				</button>
 				<div className="flex gap-4 p-4 bg-gray-200/50 justify-between md:justify-center m-4 rounded-3xl backdrop-blur">
-					{iconPack
+					{apps
 						.filter((icon) => icon.type === "dock")
 						.map((icon) => (
-							<IosIcon url={icon.img} name={icon.name} onClick={icon.onClick} />
+							<AppItem url={icon.img} name={icon.name} onClick={icon.onClick} />
 						))}
 				</div>
 			</div>
@@ -104,7 +109,7 @@ function App() {
 
 export default App;
 
-function IosIcon({
+function AppItem({
 	url,
 	name,
 	showText,
