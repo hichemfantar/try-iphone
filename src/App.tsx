@@ -37,7 +37,7 @@ const iconPack = [
 
 function App() {
 	return (
-		<div className="flex flex-col h-[100dvh] ">
+		<div className="flex flex-col h-[100vh] ">
 			<div className="text-sm p-4 pb-0 text-gray-100 flex justify-between items-center">
 				<div>9:41</div>
 				<div className="flex gap-2 items-center">
@@ -115,7 +115,7 @@ function IosIcon({
 				className="bg-green-300 h-14 w-14 rounded-xl active:opacity-80 active:grayscale-[60%] transition-all object-cover"
 			></img>
 			{showText && name && (
-				<div className="text-xs font-normal antialiased tracking-wider">
+				<div className="text-xs font-medium antialiased tracking-wider">
 					{name}
 				</div>
 			)}
