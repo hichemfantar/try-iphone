@@ -39,7 +39,7 @@ function App() {
 	return (
 		<div className="flex flex-col h-[100vh] ">
 			<div className="text-sm p-4 pb-0 text-gray-100 flex justify-between items-center">
-				<div>9:41</div>
+				<div className="font-medium">9:41</div>
 				<div className="flex gap-2 items-center">
 					<FontAwesomeIcon icon={faSignal} />
 					<FontAwesomeIcon icon={faWifi} />
